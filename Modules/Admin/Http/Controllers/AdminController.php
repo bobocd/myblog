@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -12,9 +13,10 @@ class AdminController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(User $user)
     {
-        return view('admin::user.index');
+        $users=$user->paginate(10);
+        return view('admin::user.index',compact('users'));
     }
 
     /**
