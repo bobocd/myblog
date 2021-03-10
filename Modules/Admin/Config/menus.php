@@ -16,18 +16,21 @@ return [
     'Admin'=>[
         "title"      => "系统管理",
         "icon"       => "fa fa-navicon",
-        'permission' => '角色管理',
+        'permission' => [
+            0 => 'Modules\\Admin\\Http\\Controllers\\RoleController@index',
+            1 => 'Modules\\Admin\\Http\\Controllers\\AdminController@index',
+        ],
         "menus"      => [
             0 =>
                 [
                     'title' => '用户管理',
-                    'permission' => '',
-                    'url' => '/admin/admin',
+                    'permission' => 'Modules\\Admin\\Http\\Controllers\\AdminController@index',
+                    'url' => '/admin/user',
                 ],
             1 =>
                 [
                     'title' => '角色管理',
-                    'permission' => '',
+                    'permission' => 'Modules\\Admin\\Http\\Controllers\\RoleController@index',
                     'url' => '/admin/role',
                 ],
             2 =>
