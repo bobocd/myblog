@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\UserRequest;
 use Modules\Admin\Http\Requests\UpuserRequest;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,7 @@ class AdminController extends Controller
      */
     public function index(User $user)
     {
+//        Redis::set('name', 'Taylor');
 //        sleep(10);
 //        dd($_SERVER['REMOTE_ADDR']);
         $users=$user->paginate(10);
