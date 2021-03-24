@@ -5,6 +5,7 @@ namespace Modules\Article\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Redis;
 use Modules\Article\Entities\Article;
 use Modules\Article\Entities\Category;
 use Modules\Article\Http\Requests\ArticleRequest;
@@ -17,7 +18,27 @@ class ArticleController extends Controller
      */
     public function index(Article $article)
     {
-        $data=$article->paginate(10);
+//        $listkey ="LIST:ARTICLE";
+//        $Shashkey ="HASH:ARTICLE";
+//
+//        if(Redis::exists($listkey)){
+//            $lists = Redis::lrange($listkey,0,-1); //获取所有元素
+//            foreach ($lists as $k=>$v){
+//                $arts[]=Redis::hgetall($Shashkey.$v);
+//            }
+//        }else{
+//            $arts = Article::get()->toArray();
+//            foreach ($arts as $k=>$v){
+//                Redis::rpush($listkey,$v['id']);
+//                Redis::hmset($Shashkey.$v['id'],$v);
+//            }
+//
+//        }
+
+
+
+
+        $data=$article->paginate(10) ;
         return view('article::article.index',compact('data'));
     }
 
