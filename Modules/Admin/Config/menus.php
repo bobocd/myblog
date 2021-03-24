@@ -15,7 +15,7 @@
 return [
     'Admin'=>[
         "title"      => "系统管理",
-        "icon"       => "fa fa-navicon",
+        "icon"       => "fa fa-user-circle-o",
         'permission' => [
             0 => 'Modules\\Admin\\Http\\Controllers\\RoleController@index',
             1 => 'Modules\\Admin\\Http\\Controllers\\AdminController@index',

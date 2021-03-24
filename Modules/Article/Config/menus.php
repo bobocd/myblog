@@ -14,11 +14,13 @@
  */
 return [
     'Article'=>[
-        "title"      => "系统管理",
+        "title"      => "文章管理",
         "icon"       => "fa fa-navicon",
-        'permission' => '权限标识',
+        'permission' => ['Modules\Article\Http\Controllers\CategoryController@index'],
         "menus"      => [
-            ["title" => "网站配置", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "栏目管理", "permission" => "Modules\Article\Http\Controllers\CategoryController@index", "url" => "/article/category"],
+            ["title" => "文章列表", "permission" => "Modules\Article\Http\Controllers\ArticleController@index", "url" => "/article/article"],
+            ["title" => "添加文章", "permission" => "Modules\Article\Http\Controllers\ArticleController@create", "url" => "/article/article/create"],
         ],
     ],
 ];

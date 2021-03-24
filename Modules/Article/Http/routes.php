@@ -4,4 +4,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'article', 'namespace' => 'Modu
 {
 //    Route::get('/', 'ArticleController@index');
     Route::resource('category','CategoryController');
+    Route::resource('article','ArticleController');
+    Route::any('/upload','ImageController@upload');
+
 });
