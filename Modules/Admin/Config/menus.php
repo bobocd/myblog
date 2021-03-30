@@ -39,6 +39,11 @@ return [
                     'permission' => '',
                     'url' => '/admin/module',
                 ],
+            [
+                'title' => '模板风格',
+                'permission' => 'Modules\\Admin\\Http\\TemplateController\\@index',
+                'url' => '/admin/template',
+            ],
         ],
     ],
 ];

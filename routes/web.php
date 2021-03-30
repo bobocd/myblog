@@ -14,4 +14,10 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/home','HomeController@index');
+//Route::get('/home','HomeController@index');
+
+Route::get('/', function ( \Modules\Admin\Entities\Module $module) {
+    $module=$module->getDefaultModule();
+    $class='\Modules\\'.$module['name'].'\Http\Controllers\HomeController';
+    return app()->build($class)->index();
+});

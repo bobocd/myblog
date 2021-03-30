@@ -19,5 +19,16 @@ Route::group(['middleware' => 'web', 'prefix' => 'admin', 'namespace' => 'Module
     //添加用户权限
     Route::get('user/permission/{user}','AdminController@permission');
     Route::post('user/permission/{user}','AdminController@permissionstore');
+
+    //显示模块
+    Route::get('/module','ModuleController@index');
+    //模块缓存更新
+    Route::get('/module_update_cache','ModuleController@updateCache');
+    //设置默认模块
+    Route::get('/module_set_cache/{module}','ModuleController@setDefault');
+    //模板管理
+    Route::get('/template','TemplateController@index');
+    Route::get('/template/set/{name}','TemplateController@setDefaultTemplate');
+
 });
 //Route::get('/', 'Modules\Admin\Http\Controllers\AdminController@index');
