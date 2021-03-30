@@ -8,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-default
+@category
+{{$field['name']}}
+@endcategory
 </body>
 </html>
