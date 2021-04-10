@@ -36,4 +36,11 @@ return [
             ['title' => '更新缓存', 'name' => 'Modules\Admin\Http\Controllers\ModuleController@updateCache', 'guard' => 'web'],
         ],
     ],
+    [
+        'group' => '模板风格管理',
+        'permissions' => [
+            ['title' => '模版列表', 'name' => 'Modules\Admin\Http\Controllers\TemplateController@index', 'guard' => 'web'],
+            ['title' => '设置默认模板', 'name' => 'Modules\Admin\Http\Controllers\TemplateController@setDefaultTemplate', 'guard' => 'web'],
+        ],
+    ],
 ];
