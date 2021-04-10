@@ -8,6 +8,9 @@ use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
 {
+    /**
+     * 修改默认的加载路径
+     */
     public function __construct()
     {
         $template=\HDModule::config('admin.config.template');

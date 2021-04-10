@@ -11,7 +11,7 @@
                         <div class="card-block">
                             <img src="{{$template['preview']}}" alt="" style="width: 100%;height: 160px;">
                         </div>
-                        @if(\HDModule::config('article.config.template')==$template['name'])
+                        @if(\HDModule::config('admin.config.template')==$template['name'])
                             <a href="/admin/template/set/{{$template['name']}}" class="btn btn-block">默认模板</a>
                             @else
                         <a href="/admin/template/set/{{$template['name']}}" class="btn btn-success btn-block">设为默认模板</a>
