@@ -10,6 +10,7 @@ use Modules\Admin\Http\Requests\UserRequest;
 use Modules\Admin\Http\Requests\UpuserRequest;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,13 @@ class AdminController extends Controller
         return view('admin::user.index',compact('users'));
     }
 
+    /**
+     * 登录用户退出
+     */
+    public function logout(){
+        Auth::logout();
+        return redirect('/admin/login');
+    }
 
     /**
      * Store a newly created resource in storage.

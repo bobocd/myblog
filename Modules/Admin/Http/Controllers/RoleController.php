@@ -19,7 +19,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles=Role::where('name','<>','webmaster')->get();
-        return view('admin::role.index',compact('roles'));
+        return view('admin::Role.index',compact('roles'));
     }
 
 

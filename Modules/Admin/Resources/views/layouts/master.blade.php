@@ -9,8 +9,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title','hdcms')</title>
-    <meta name="author" content="向军大叔"/>
+    <title>@yield('title','荟学习')</title>
+    <meta name="author" content="msjf001"/>
     <meta name="description" content="@yield('description')"/>
     <meta name="keywords" content="@yield('keywords')"/>
     {{--<link rel="stylesheet" href="{{mix('css/app.css')}}">--}}
@@ -44,9 +44,9 @@
                         </a>
                         <div role="menu" class="dropdown-menu">
                             <div class="user-info">
-                                <div class="user-name">nickname</div>
+                                <div class="user-name">{{auth()->user()->name}}</div>
                                 <div class="user-position online">
-                                    email
+                                    {{auth()->user()->email}}
                                 </div>
                             </div>
                             <a href="pages-profile.html" class="dropdown-item">
@@ -58,7 +58,7 @@
                             <a href="javascript:void(0);" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout').submit()">
                                 <span class="icon mdi mdi-power"></span> 退出
                             </a>
-                            <form action="" method="post" id="logout">
+                            <form action="/admin/logout" method="post" id="logout">
                                 @csrf
                             </form>
                         </div>

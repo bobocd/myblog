@@ -16,7 +16,9 @@ class CategoryController extends Controller
      */
     public function index(Category $category)
     {
+
         $categories=$category->getAll();
+//        dd($categories);
         foreach ($categories as $k=>$v){
             if($v['pid']!=0){
                 $pidName=\DB::table('categories')->where('id','=',$v['pid'])->get();
@@ -24,7 +26,8 @@ class CategoryController extends Controller
                 $categories[$k]=$v;
             }
         }
-        return view('article::category.index',compact('categories'));
+
+        return view("article::Category.index",compact("categories"));
     }
 
 

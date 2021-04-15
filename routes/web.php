@@ -21,3 +21,9 @@ Route::get('/', function ( \Modules\Admin\Entities\Module $module) {
     $class='\Modules\\'.$module['name'].'\Http\Controllers\HomeController';
     return app()->build($class)->index();
 });
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//微信配置
+Route::any('wechat','WeChatController@handler');

@@ -14,12 +14,12 @@
  */
 return [
     'Article'=>[
-        "title"      => "文章管理",
+        "title"      => "栏目管理",
         "icon"       => "fa fa-navicon",
         'permission' => ['Modules\Article\Http\Controllers\CategoryController@index'],
         "menus"      => [
-            ["title" => "栏目管理", "permission" => "Modules\Article\Http\Controllers\CategoryController@index", "url" => "/article/category"],
-            ["title" => "文章列表", "permission" => "Modules\Article\Http\Controllers\ArticleController@index", "url" => "/article/article"],
+            ["title" => "分类管理", "permission" => "Modules\Article\Http\Controllers\CategoryController@index", "url" => "/article/category"],
+            ["title" => "文章管理", "permission" => "Modules\Article\Http\Controllers\ArticleController@index", "url" => "/article/article"],
         ],
     ],
 ];

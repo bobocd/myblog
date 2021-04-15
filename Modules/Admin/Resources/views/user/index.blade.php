@@ -65,7 +65,7 @@
             </table>
         @endslot
         @slot('footer')
-            $users->links();
+            {{$users->links()}}
         @endslot
     @endcomponent
 @endsection
