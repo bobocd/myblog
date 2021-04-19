@@ -11,7 +11,7 @@
         </ul>
         <form action="/wx/wx_menu" method="post">
             @csrf
-            <wx-menu :menudata="[]"></wx-menu>
+            <wx-menu :menudata="[]" menuname=""></wx-menu>
         </form>
     </div>
 @endsection

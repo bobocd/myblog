@@ -10,9 +10,12 @@
  */
 return [
     [
-        'group' => '文章管理',
+        'group' => '公众号管理',
         'permissions' => [
-            ['title' => '添加栏目', 'name' => 'Modules\Admin\Http\Controllers\CategoryController@create', 'guard' => 'admin'],
+            ['title' => '参数配置', 'name' => 'Modules\Wx\Http\Controllers\WxConfigController@index', 'guard' => 'web'],
+            ['title' => '菜单设置', 'name' => 'Modules\Wx\Http\Controllers\WxMenuController@index', 'guard' => 'web'],
+            ['title' => '自动回复设置', 'name' => 'Modules\Wx\Http\Controllers\WxReplyBaseController@index', 'guard' => 'web'],
+            ['title' => '图文设置', 'name' => 'Modules\Wx\Http\Controllers\WxNewsController@index', 'guard' => 'web'],
         ],
     ],
 ];

@@ -32,7 +32,7 @@
                         <div class="form-group row">
                             <label for="inputSmall" class="col-12 col-sm-3 col-form-label text-sm-right">菜单名称</label>
                             <div class="col-12 col-sm-8 col-lg-6">
-                                <input  type="text" value="" class="form-control form-control-sm" name="name">
+                                <input  type="text" value="" class="form-control form-control-sm" name="name" v-model="title">
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="card-footer text-muted">
-                        <textarea name="data"> {{ menus }}</textarea>
+                        <textarea name="data" display="none" hidden> {{menus}}</textarea>
                         <button class="btn-primary btn">保存菜单</button>
                     </div>
                 </div>
@@ -92,12 +92,17 @@
             menudata:{
                 type:Array,
                 default:''
+            },
+            menuname:{
+                type:String,
+                default:''
             }
         },
         data(){
             return{
                 menus:this.menudata,
                 active:{},
+                title:this.menuname
             }
         },
         methods:{

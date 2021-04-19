@@ -360,6 +360,7 @@
 </div>
 {{--<script src="{{asset('theme/beagle/lib/jquery/jquery.min.js')}}" type="text/javascript"></script>--}}
 <script src="{{mix('js/app.js')}}"></script>
+@yield('scripts')
 <script src="{{asset('theme/beagle/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js')}}"
         type="text/javascript"></script>
 <script src="{{asset('theme/beagle/js/app.js')}}" type="text/javascript"></script>
@@ -373,6 +374,6 @@
 <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
 <script src="{{ asset('plugin/pjax/pjax.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('plugin/pjax/pjax.css') }}">
-@yield('scripts')
+
 </body>
 </html>

@@ -11,7 +11,7 @@
         </ul>
         <form action="/wx/wx_menu/{{$wx_menu['id']}}" method="post">
             @csrf @method('PUT')
-            <wx-menu :menudata="{{json_decode($wx_menu['data'])}}"></wx-menu>
+            <wx-menu :menudata="{{$wx_menu['data']}}" menuname="{{$wx_menu['name']}}"></wx-menu>
         </form>
     </div>
 @endsection

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class WxMenu extends Model
 {
-    protected $fillable = ['name','data'];
+    protected $fillable = ['name','data','status'];
 }

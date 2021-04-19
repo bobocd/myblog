@@ -25,17 +25,16 @@ class WeChatController extends Controller
 
         //普通文本消息处理
         $instance = WeChat::instance('message');
-        //关注用户扫描二维码事件
         if ($instance->isTextMsg())
         {
             $message  = $instance->getMessage();
             return $this->response($message->Content);
             //向用户回复消息
-            //return $instance->text("你发送的内容是".$class);
+//            return $instance->text("你发送的内容是".$message->Content);
+
         }
         //按钮消息处理
         $instance = WeChat::instance('button');
-        //关注用户扫描二维码事件
         if ($instance->isClickEvent()) {
             //获取消息内容
             $message = $instance->getMessage();
@@ -44,7 +43,7 @@ class WeChatController extends Controller
         }
     }
     protected  function  response($key){
-        $rule=WxKeyword::firstOrNew(['key'=>$key])->rule;
+        $rule= WxKeyword::firstOrNew(['key'=>$key])->rule;
         $class='Modules\\'.$rule['module'].'\Response';
         return call_user_func_array([new $class,'handle'],[$rule]);
     }

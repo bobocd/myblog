@@ -18,8 +18,10 @@ return [
         "icon"       => "fa fa-cc-mastercard",
         'permission' => '权限标识',
         "menus"      => [
-            ["title" => "微信公众号配置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxConfigController@index", "url" => "/wx/wx_config"],
-            ["title" => "微信公众号菜单", "permission" => "Modules\\Admin\\Http\\Controllers\\WxMenuController@index", "url" => "/wx/wx_menu"],
+            ["title" => "参数配置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxConfigController@index", "url" => "/wx/wx_config"],
+            ["title" => "菜单设置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxMenuController@index", "url" => "/wx/wx_menu"],
+            ["title" => "自动回复设置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxReplyBaseController@index", "url" => "/wx/wx_reply_base"],
+            ["title" => "图文设置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxNewsController@index", "url" => "/wx/wx_news"],
         ],
     ],
 ];
