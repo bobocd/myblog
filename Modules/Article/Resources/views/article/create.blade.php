@@ -60,9 +60,9 @@
                                 <div class="layui-upload">
                                     <button type="button" class="layui-btn" id="test1"><i class="layui-icon"></i>上传文件</button>
                                     <div class="layui-upload-list">
-                                        <img class="layui-upload-img" id="demo1">
+                                        <img class="layui-upload-img" id="demo1" src="{{$article['thumb']??old('thumb')}}">
                                         <p id="demoText"></p>
-                                        <input type="hidden" name="thumb" id="imgsrc" class="layui-input">
+                                        <input type="hidden" name="thumb" id="imgsrc" class="layui-input" value="{{$article['thumb']??old('thumb')}}">
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
             //普通图片上传
             var uploadInst = upload.render({
                 elem: '#test1'
-                ,url: '/article/upload' //改成您自己的上传接口
+                ,url: '/article/article/upload' //改成您自己的上传接口
                 ,headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }

@@ -4,7 +4,12 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'article', 'namespace'
 {
 //    Route::get('/', 'ArticleController@index');
     Route::resource('category','CategoryController');
+    //文章缩率图上传
+    Route::any('/article/upload','ArticleController@upload');
     Route::resource('article','ArticleController');
-    Route::any('/upload','ImageController@upload');
+    //幻灯片图片上传
+    Route::any('/slide/slideupload','SlideController@upload');
+    Route::resource('slide','SlideController');
+
 
 });

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Redis;
 use Modules\Article\Entities\Article;
 use Modules\Article\Entities\Category;
 use Modules\Article\Http\Requests\ArticleRequest;
+use App\Handlers\ImageUploadHandler;
+use App\Handlers\TemplatePathHandler;
 
 class ArticleController extends Controller
 {
@@ -97,7 +99,7 @@ class ArticleController extends Controller
         $data['digest']=$content['digest'];
         $data['author']=$content['author'];
         $data['content']=$content['content'];
-//        $data['thumb']=$content['thumb'];
+        $data['thumb']=$content['thumb'];
         $data['click']=$content['click'];
         $data['category_id']=$content['category_id'];
         $data['iscommend']=$content['iscommend'];
@@ -115,8 +117,33 @@ class ArticleController extends Controller
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy(Article $article)
     {
+        $article->delete();
+        return redirect('article/article')->with('success','删除成功');
+    }
+    //图片上传
+    public function  upload(Request $request,ImageUploadHandler $uploader,TemplatePathHandler $temp){
 
+        $template=$temp->getTemplatePath();
+
+        // 初始化返回数据，默认是失败的
+        $data = [
+            'code'=>201,
+            'msg' => '上传失败!',
+            'file_path' => ''
+        ];
+        // 判断是否有上传文件，并赋值给 $file
+        if ($request->file) {
+            // 保存图片到本地
+            $result = $uploader->save($request->file, $template['controller'], \Auth::user()['name'], 1024);
+            // 图片保存成功的话
+            if ($result) {
+                $data['file_path'] = $result['path'];
+                $data['msg'] = "上传成功!";
+                $data['code'] = 0;
+            }
+        }
+        return json_encode($data);
     }
 }

@@ -20,6 +20,7 @@ return [
         "menus"      => [
             ["title" => "分类管理", "permission" => "Modules\Article\Http\Controllers\CategoryController@index", "url" => "/article/category"],
             ["title" => "文章管理", "permission" => "Modules\Article\Http\Controllers\ArticleController@index", "url" => "/article/article"],
+            ["title" => "幻灯片管理", "permission" => "Modules\Article\Http\Controllers\SlideController@index", "url" => "/article/slide"],
         ],
     ],
 ];
