@@ -16,7 +16,10 @@ return [
     'Wx'=>[
         "title"      => "微信公众号管理",
         "icon"       => "fa fa-cc-mastercard",
-        'permission' => '权限标识',
+        'permission' => ['Modules\Wx\Http\Controllers\WxConfigController@index',
+                         'Modules\Wx\Http\Controllers\WxMenuController@index',
+                        'Modules\Wx\Http\Controllers\WxReplyBaseController@index',
+                        'Modules\Wx\Http\Controllers\WxNewsController@index'],
         "menus"      => [
             ["title" => "参数配置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxConfigController@index", "url" => "/wx/wx_config"],
             ["title" => "菜单设置", "permission" => "Modules\\Admin\\Http\\Controllers\\WxMenuController@index", "url" => "/wx/wx_menu"],

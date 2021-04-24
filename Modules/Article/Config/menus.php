@@ -15,10 +15,12 @@
 return [
     'Article'=>[
         "title"      => "栏目管理",
-        "icon"       => "fa fa-navicon",
-        'permission' => ['Modules\Article\Http\Controllers\CategoryController@index'],
+        "icon"       => "fa fa-file-image-o",
+        'permission' => ['Modules\Article\Http\Controllers\CategoryController@index',
+                         'Modules\Article\Http\Controllers\ArticleController@index',
+                         'Modules\Article\Http\Controllers\SlideController@index'],
         "menus"      => [
-            ["title" => "分类管理", "permission" => "Modules\Article\Http\Controllers\CategoryController@index", "url" => "/article/category"],
+            ["title" => "栏目分类", "permission" => "Modules\Article\Http\Controllers\CategoryController@index", "url" => "/article/category"],
             ["title" => "文章管理", "permission" => "Modules\Article\Http\Controllers\ArticleController@index", "url" => "/article/article"],
             ["title" => "幻灯片管理", "permission" => "Modules\Article\Http\Controllers\SlideController@index", "url" => "/article/slide"],
         ],

@@ -11,6 +11,7 @@ use Modules\Admin\Http\Requests\UpuserRequest;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -107,5 +108,24 @@ class AdminController extends Controller
         $user->syncRoles($request['name']);
         session()->flash('success', '角色添加成功');
         return back();
+    }
+    //根据条件筛选用户
+    public function shaixuan(Request $request){
+
+//        dd(empty($request['loginno']));
+        $data=[];
+        if(!empty($request['phone']) or !empty($request['name'])){
+            $users = DB::table('users') ->where('phone',$request['phone']) ->orWhere('name', $request['loginno']) ->get();
+        }else{
+            $users = DB::table('users')->get();
+
+        }
+        foreach ($users as $k=>$user){
+            $data[$k]['id']=$user->id;
+            $data[$k]['name']=$user->name;
+            $data[$k]['email']=$user->email;
+            $data[$k]['phone']=$user->phone;
+        }
+        return json_encode($data);
     }
 }

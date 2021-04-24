@@ -178,14 +178,14 @@
             <div class="progress-widget">
                 <div class="progress-data">
                     <span class="name">
-                      系统由  <a href="http://www.hdcms.com" target="_blank">HDCMS</a> 提供技术支持
+                      系统由  <a href="http://www.ydsuv.cn" target="_blank">huiStudy</a> 提供技术支持
                     </span>
                 </div>
             </div>
         </div>
     </div>
     <div class="be-content">
-        <div class="main-content container-fluid">
+        <div class="main-content container-fluid" id="pjax-container">
             <!--- pjax加载动画 --->
             <div id="loading">
                 <div class="spinner">

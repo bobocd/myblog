@@ -17,7 +17,7 @@
                     {{$slot}}
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary md-close">保存</button>
+                    <button type="submit" class="btn btn-primary md-close">提交</button>
                 </div>
             </div>
         </div>

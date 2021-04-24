@@ -13,6 +13,7 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'admin', 'namespace' =
     Route::post('/user', 'AdminController@store');
     Route::put('/user/{user}', 'AdminController@update');
     Route::DELETE('/user/{user}', 'AdminController@destroy');
+    Route::post('user/shaixuan','AdminController@shaixuan');
     //登录用户退出
     Route::post('/logout','AdminController@logout');
     //添加用户角色
