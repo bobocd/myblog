@@ -14,8 +14,22 @@ class VerificationCodesController extends Controller
     private $hcsj;
     public function store(VerificationCodeRequest $request,Mas $mas){
 
+        //获取图片验证码
+        $captchaData = \Cache::get($request->captcha_key);
+
+        if (!$captchaData) {
+            return $this->response->error('图片验证码已失效', 422);
+        }
+
+        if (!hash_equals(Str::lower($captchaData['code']), Str::lower($request->captcha_code))) {
+            // 验证错误就清除缓存
+            \Cache::forget($request->captcha_key);
+            return $this->response->errorUnauthorized('验证码错误');
+        }
+
+        $phone = $captchaData['phone'];
+
         $this->hcsj=3;
-        $phone = $request->phone;
         // 生成6位随机数，左侧补0
         $code = str_pad(random_int(1, 999999), 6, 0, STR_PAD_LEFT);
         try{
