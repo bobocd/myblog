@@ -19,7 +19,7 @@ class VerificationCodesController extends Controller
         // 生成6位随机数，左侧补0
         $code = str_pad(random_int(1, 999999), 6, 0, STR_PAD_LEFT);
         try{
-            $mas->send([$code,$this->hcsj],'13990350009','aa7b60cd504a48c19540c74e63913eb3');
+            $mas->send([$code,$this->hcsj],$phone,'aa7b60cd504a48c19540c74e63913eb3');
 
         }catch (\GuzzleHttp\Exception\ClientException $exception){
             $response = $exception->getResponse();
