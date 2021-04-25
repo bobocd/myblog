@@ -3,17 +3,17 @@ namespace App\Handlers;
 
 class Mas{
     /**
-     * 发送模板短信
-     * 用户名、工单名、手机号码、模板
+     * 发送工单模板短信
+     * [用户名,工单名]、手机号码、模板
      */
-    final public function send($username,$jobId,$mobiles,$templateId){
+    final public function send($param,$mobiles,$templateId){
         $url=env('MAS_URL');
-
         $EC_NAME = env('MAS_EC_NAME');
         $AP_ID = env('MAS_AP_ID');
         $SECRET_KEY = env('MAS_SECRET_KEY');
         $SIGN = env('MAS_SIGN');
-        $params = "[\"$username\",\"$jobId\"]";
+        $params = $this->arrayTostring($param);
+//        $params = "[\'$username\',\'$jobId\']";
         $ADD_SERIAL = '';
         $data = [
             'ecName' => $EC_NAME,
@@ -39,5 +39,15 @@ class Mas{
 
         $res=curl_exec($curl);
         curl_close($curl);
+    }
+
+    public function  arrayTostring($param){
+        $str = "[";
+        foreach ($param as $d){
+            $str=$str."'".$d."'".",";
+        }
+        $str=trim($str,',');
+        $str=$str."]";
+        return  $str;
     }
 }

@@ -63,7 +63,7 @@ class FwjwjController extends Controller
 
         //保存成功后发送短信
         if($fwjwj->save()){
-            $mas->send($deal_user['name'],$data['title'],$deal_user['phone'],'4e6d21ac6ff041fcb9956a8d7c7f3ff7');
+            $mas->send([$deal_user['name'],$data['title']],$deal_user['phone'],'4e6d21ac6ff041fcb9956a8d7c7f3ff7');
         };
         return redirect('/work/fwjwj')->with('success', '保存成功');
     }
@@ -104,6 +104,7 @@ class FwjwjController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function dealStore(Request $request,Fwjwj $fwjwjs,User $user,Mas $mas){
+
         $fw=$fwjwjs->where('id',$request['gongdanID'])->first();
         $fw->deal_user_id=$request['users'];
         $fw->status="第二责任人处理";
@@ -111,7 +112,7 @@ class FwjwjController extends Controller
         $deal_user=$user->where('id',$request['users'])->first();
         //保存成功后发送短信
         if($fw->save()){
-            $mas->send($deal_user['name'],$fw['title'],$deal_user['phone'],'0d2dedd8e2394558b1c33d63bf2347e3');
+            $mas->send([$deal_user['name'],$fw['title']],$deal_user['phone'],'0d2dedd8e2394558b1c33d63bf2347e3');
         }
         return back()->with('success', '转派成功');
     }
