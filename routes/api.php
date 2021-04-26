@@ -24,6 +24,7 @@ $api->version('v1',[
 ], function ($api) {
     // 图片验证码
     $api->post('captchas', 'CaptchasController@store')->name('api.captchas.store');
+
     $api->group(
         [
             ###限制1分钟接口调用次数
@@ -35,7 +36,14 @@ $api->version('v1',[
         $api->post('verificationCodes', 'VerificationCodesController@store')->name('api.verificationCodes.store');
         // 用户注册
         $api->post('users', 'UsersController@store')->name('api.users.store');
-
+        // 第三方登录
+        $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')->name('api.socials.authorizations.store');
+        //手机账号登录
+        $api->post('authorizations', 'AuthorizationsController@store')->name('api.authorizations.store');
+        // 刷新token
+        $api->put('authorizations/current', 'AuthorizationsController@update')->name('api.authorizations.update');
+        // 删除token
+        $api->delete('authorizations/current', 'AuthorizationsController@destroy')->name('api.authorizations.destroy');
     });
 });
 
