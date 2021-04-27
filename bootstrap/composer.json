@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "overtrue/laravel-query-logger": "^2.1"
+    }
+}
