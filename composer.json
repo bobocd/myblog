@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
-        "dingo/api": "^3.0.0",
+        "dingo/api": "~2.4.0",
+        "jenssegers/mongodb":"^3.4.0",
         "doctrine/dbal": "2.7.0",
         "fideloper/proxy": "^4.0",
         "gregwar/captcha": "^1.1",
@@ -20,6 +21,7 @@
         "laravel/tinker": "^1.0",
         "lcobucci/jwt": "3.3.3",
         "liyu/dingo-serializer-switch": "^0.3.2",
+        "overtrue/laravel-wechat": "~5.0",
         "predis/predis": "^1.1",
         "socialiteproviders/weixin": "^4.0",
         "spatie/laravel-permission": "~2.7",

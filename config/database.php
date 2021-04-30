@@ -77,7 +77,17 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
-
+        'mongodb' => array(         //MongoDB
+            'driver'   => 'mongodb',
+            'host'     => 'localhost',  //数据库服务器的ip
+            'port'     => 27017,            //数据库服务器上mongodb服务对应的端口
+            'database' => 'mas',  //数据库名称
+            'username' => '',
+            'password' => '',
+            'options' => array(
+                'database' => 'mas' // 要使用的数据库
+            )
+        )
     ],
 
     /*
@@ -123,5 +133,4 @@ return [
         ],
 
     ],
-
 ];

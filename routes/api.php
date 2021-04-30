@@ -25,7 +25,6 @@ $api->version('v1',[
 ], function ($api) {
     // 图片验证码
     $api->post('captchas', 'CaptchasController@store')->name('api.captchas.store');
-
     $api->group(
         [
             ###限制1分钟接口调用次数
